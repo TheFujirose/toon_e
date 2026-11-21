@@ -4,3 +4,6 @@
 [submodule "src/loone_urdf"]
 	path = src/loone_urdf
 	url = https://github.com/HumberASV/LoonE-URDF
+[submodule "src/toon_e_hardware"]
+	path = src/toon_e_hardware
+	url = https://github.com/TheFujirose/toon_e_hardware
