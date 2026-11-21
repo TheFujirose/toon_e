@@ -35,5 +35,5 @@ fi
 echo "Sourcing install/setup.sh"
 source "$WS_ROOT/install/setup.sh"
 
-echo "Launching SLAM"
-ros2 launch loone slam_launch.py
+echo "Launching bringup"
+ros2 launch toon_e launch.py

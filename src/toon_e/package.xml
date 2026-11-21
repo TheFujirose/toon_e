@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>toon_e</name>
+  <version>0.0.0</version>
+  <description>Loon-E ASV bringup: ZED X localization, Nav2 and the hardware node.</description>
+  <maintainer email="50027005+TheFujirose@users.noreply.github.com">carson</maintainer>
+  <license>Apache-2.0</license>
+
+  <depend>rclpy</depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <!-- Sibling workspace packages (submodules under src/) -->
+  <exec_depend>zed_wrapper</exec_depend>
+  <exec_depend>le1000_urdf_t4</exec_depend>
+  <exec_depend>toon_e_hardware</exec_depend>
+
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <!-- Nav2: bringup launch file plus the plugins named in config/nav2_params.yaml -->
+  <exec_depend>nav2_bringup</exec_depend>
+  <exec_depend>nav2_costmap_2d</exec_depend>
+  <exec_depend>nav2_navfn_planner</exec_depend>
+  <exec_depend>nav2_regulated_pure_pursuit_controller</exec_depend>
+
+  <exec_depend>rviz2</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

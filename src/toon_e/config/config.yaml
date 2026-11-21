@@ -1,0 +1,34 @@
+# toon_e_hardware hardware_node parameters (see src/toon_e_hardware/README.md).
+# Read once at startup; restart the node after changing a value.
+/hardware_node:
+  ros__parameters:
+    timer_period: 0.5 # Period (s) of the battery / RC / LED / motor publishers
+    i2c: True         # false runs the node without touching hardware
+    estop_clear_high: True # E-stop line (D13) is high when clear, low when pressed
+
+    # cmd_vel mapping. With 1.0 / 1.0, Nav2's m/s and rad/s are raw throttle
+    # fractions. TODO(team): calibrate both on the water (toon_e_hardware
+    # wiki/CALIBRATION.md steps 3-4), then keep Nav2's velocity limits below them.
+    max_linear_speed: 1.0   # m/s with both props at full forward throttle
+    max_angular_speed: 1.0  # rad/s spinning in place at full opposite throttle
+    cmd_vel_timeout: 0.5    # s without cmd_vel before the props stop
+
+    freq: 50          # PCA9685 PWM frequency in Hz
+    pca_clock: 25760154  # PCA9685 oscillator in Hz; set to 25e6 * measured PWM Hz / freq (measured 51.55 Hz at 50)
+
+    prop_min: 1120    # Propeller ESC min pulse width (µs)
+    prop_max: 1880    # Propeller ESC max pulse width (µs)
+    carriage_min: 500   # Ball carriage servo min pulse width (µs)
+    carriage_max: 2500  # Ball carriage servo max pulse width (µs)
+    carriage_range: 180 # Ball carriage servo travel (degrees): 180 or 270 model
+    launcher_min: 1100  # Ball launcher ESC min pulse width (µs)
+    launcher_max: 1900  # Ball launcher ESC max pulse width (µs)
+    load_time: 5.0      # Seconds the ball launcher wheel runs backwards to load
+    load_power: 0.1     # Default ball launcher throttle while loading (0 to 1)
+    launch_time: 5.0    # Seconds the ball launcher wheel keeps running after firing
+    launch_power: 0.1   # Default ball launcher throttle while firing (0 to 1)
+
+    dw_min: 15.0      # Min voltage of Dewalt battery
+    dw_max: 21.0      # Max voltage of Dewalt battery
+    br_min: 13.2      # Min voltage of Blue Robotics battery
+    br_max: 16.8      # Max voltage of Blue Robotics battery
